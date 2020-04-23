@@ -1,0 +1,187 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class MyCalculator {
+    private double total=0;
+    private double c;
+    private double total2=0;
+    private JPanel calci;
+    private JTextField textField1;
+    private JButton bt2;
+    private JButton btmul;
+    private JButton btequals;
+    private JButton bt3;
+    private JButton bt5;
+    private JButton bt8;
+    private JButton btdot;
+    private JButton btadd;
+    private JButton bt6;
+    private JButton bt9;
+    private JButton btcl;
+    private JButton btsub;
+    private JButton btdiv;
+    private JButton bt1;
+    private JButton bt4;
+    private JButton bt7;
+    private JButton bt0;
+
+    public MyCalculator() {
+        bt1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt1Text=textField1.getText()+bt1.getText();
+                textField1.setText(bt1Text);
+            }
+        });
+        bt2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt2Text=textField1.getText()+bt2.getText();
+                textField1.setText(bt2Text);
+
+            }
+        });
+        bt3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt3Text=textField1.getText()+bt3.getText();
+                textField1.setText(bt3Text);
+
+            }
+        });
+        bt4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt4Text=textField1.getText()+bt4.getText();
+                textField1.setText(bt4Text);
+
+            }
+        });
+        bt5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt5Text=textField1.getText()+bt5.getText();
+                textField1.setText(bt5Text);
+
+            }
+        });
+        bt6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt6Text=textField1.getText()+bt6.getText();
+                textField1.setText(bt6Text);
+
+            }
+        });
+        bt7.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt7Text=textField1.getText()+bt7.getText();
+                textField1.setText(bt7Text);
+
+            }
+        });
+        bt8.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt8Text=textField1.getText()+bt8.getText();
+                textField1.setText(bt8Text);
+
+            }
+        });
+        bt9.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt9Text=textField1.getText()+bt9.getText();
+                textField1.setText(bt9Text);
+
+            }
+        });
+        bt0.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String bt0Text=textField1.getText()+bt0.getText();
+                textField1.setText(bt0Text);
+
+            }
+        });
+
+        btadd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                c=1;
+                total=total+Double.parseDouble(textField1.getText());
+                textField1.setText("");
+            }
+        });
+        btmul.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                c=2;
+                if(total==0)
+                    total=1;
+                total=total*Double.parseDouble(textField1.getText());
+                textField1.setText("");
+            }
+        });
+        btsub.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                c=3;
+                total=Double.parseDouble(textField1.getText())-total;
+                textField1.setText("");
+            }
+        });
+        btdiv.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                c=4;
+                if(total==0)
+                    total=1;
+                total=Double.parseDouble(textField1.getText())/total;
+                textField1.setText("");
+            }
+        });
+
+        btequals.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(c==1)
+                total2=total+Double.parseDouble(textField1.getText());
+                else if(c==2)
+                    total2=total*Double.parseDouble(textField1.getText());
+                else if(c==3)
+                    total2=total-Double.parseDouble(textField1.getText());
+                else if(c==4)
+                    total2=total/Double.parseDouble(textField1.getText());
+                textField1.setText(String.valueOf(total2));
+                total=0;
+
+            }
+        });
+        btcl.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                total2=0;
+                textField1.setText("");
+            }
+        });
+
+        btdot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String btdotText=textField1.getText()+btdot.getText();
+                textField1.setText(btdotText);
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("MyCalculator");
+        frame.setContentPane(new MyCalculator().calci);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
